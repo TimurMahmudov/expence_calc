@@ -1,0 +1,45 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    
+}
+
+.content {
+    margin: 0px 100px;
+}
+
+.menu {
+    background: #2F4F4F;
+    padding: 30px;
+}
+
+.menu a {
+    text-decoration: none;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+    transition: all .35s ease-in-out;
+}
+
+#nav_bar {
+    display: inline;
+    padding: 0px 20px;
+    margin: 0px ;
+    background: #2F4F4F;
+}
+
+#nav_bar li {
+    display: inline;
+    padding: 0px 20px;
+    float: right;
+}
+
+#nav_bar li a {
+    color: silver;
+    background: #2F4F4F;
+}
+
+main {
+    margin: 40px 30px;
+}
