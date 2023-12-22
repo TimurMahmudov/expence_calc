@@ -19,9 +19,15 @@ from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
 
+from purchases.views import index
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', index, name="main"),
     path('purchases/', include('purchases.urls', namespace="purchases")),
+    path('accounts/', include('allauth.urls')),
+    path('calendar/', include('calendar_events.urls', namespace="calendar"))
 ]
 
 if settings.DEBUG:

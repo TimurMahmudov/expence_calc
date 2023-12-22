@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}{{ message }}{% endblock title %}
+
+
+{% block content %}
+    <div id="period_info">
+        <ul>
+            {% for date, events in week.items %}
+                <div class="day_info">
+                    <a href="{% url "calendar:day_events" date %}">
+                        {{ date }}
+                    </a>
+                    <ul>
+                        {% for event in events %}
+                            <li>
+                                {{ event.time }} - <a href="{% url "calendar:event" event.id %}">
+                                    {{ event.title }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock content %}

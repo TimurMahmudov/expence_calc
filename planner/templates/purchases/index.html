@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="main_purch">
+        <div class="add_post">
+            <p>
+                <a class="btn-oval" href="{% url "purchases:create_posts" %}">Добавить записи</a>
+            </p>
+        </div>
+        <div class="table_item">
+            <table border=1 width=25%>
+                {% for cat in cats %}
+                    <tr class="str-info">
+                        <td><a href="{{ cat.get_absolute_url }}">{{ cat.name }}</a></td>
+                        <td>{{ cat.get_total_amount }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock content %}

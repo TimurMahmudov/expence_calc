@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Запланированные задачи на {{ date }}
+{% endblock title %}
+
+{% block content %}
+    <h1>
+        {% for item in date %}
+            {{ item }}
+        {% endfor %}
+    </h1>
+    <ul>
+        {% for event in events %}
+            <a href="{% url "calendar:day_events" event.id %}">
+                <ul>
+                    <li>
+                        Время: {{ event.time.time }}
+                    </li>
+                    <li>
+                        Название: {{ event}}                    
+                    </li>
+                    <li>
+                        Описание: {{ event.get_description }}
+                    </li>
+                </ul>
+            </a>
+            <hr>
+        {% endfor %}
+    </ul>
+{% endblock content %}
