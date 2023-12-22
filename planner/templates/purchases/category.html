@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}
+    {{ cat.name }}
+{% endblock title %}
+
+{% load user_filters %}
+
+{% block content %}
+    <div id="encl-menu">
+        {% enclusion_menu slug %}
+    </div>
+    <div>
+        <h1>{{ cat.name }} - {{ cat.get_total_amount }}</h1>
+        <ul>
+            {% for post in cat.posts.all %}
+                <ul class="purch-info">
+                    <li>Наименование продукта: {{ post.name }}</li>
+                    <li>Стоимость: {{ post.amount }}</li>
+                    <li>Дата покупки: {{ post.create_dt }}</li>
+                </ul>
+                <hr>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock content %}

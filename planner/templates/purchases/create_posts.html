@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}
+Добавление списка совершенных покупок
+{% endblock title %}
+
+{% block content %}
+    <form method="post">
+    {% load user_filters %}
+    {% csrf_token %}
+    {{ formset.management_form }}
+        <div id="form_set">
+            <ul>
+            {% for form in formset %}
+                <table class="form">
+                    {% for field in form %}
+                        <tr>
+                            <td class="input-value">
+                                {{ field|addclass:"form-control" }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% endfor %}
+            </ul>
+        </div>
+        <div class="add_form">
+            <button type="submit">Добавить</button>
+        </div>
+    </form>
+{% endblock content %}
