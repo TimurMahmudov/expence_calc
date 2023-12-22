@@ -1,15 +1,29 @@
 <!DOCTYPE html>
+{% load static %}
+{% load user_filters %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Ваши расходы{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'menu/style.css' %}">
+    <link rel="stylesheet" href="{% static 'posts/style.css' %}">
+    <link rel="stylesheet" href="{% static 'posts/category_style.css' %}">
 </head>
-<body>
-    <nav></nav>
-    <main>
-        {% block content %}
-        {% endblock content %}
-    </main>
+<body class="background-tint">
+    <div class="content">
+        <div class="menu">
+            <nav>
+                <ul id="nav_bar">
+                    <li><a href="{% url "purchases:index" %}">Ваши расходы</a></li>
+                    <li><a href="{% url "calendar:index" %}">Календарь событий</a></li>
+                </ul>
+            </nav>
+        </div>
+        <main>
+            {% block content %}
+            {% endblock content %}
+        </main>
+    </div>
 </body>
 </html>

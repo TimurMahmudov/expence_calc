@@ -1,0 +1,17 @@
+<ul>
+    {% for cat in cats %}
+        {% if cat == select_cat %}
+            <li class="active-cat">
+                <a href="{% url "purchases:category" select_cat.slug %}">
+                    {{ select_cat.name }}
+                </a>
+            </li>
+        {% else %}
+            <li>
+                <a href="{% url "purchases:category" cat.slug %}">
+                    {{ cat.name }}
+                </a>
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>
